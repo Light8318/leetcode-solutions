@@ -1,0 +1,21 @@
+//language: c++
+//Time: O(n)
+
+class Solution {
+public:
+    int subtractProductAndSum(int n) {
+        int product = 1; //As we have to multiply the number so  product cannot be zero
+        int sum = 0;
+        
+        while(n!=0){          // until n reaches 0 the loop will work
+            int digit = n % 10;  // to get the last digit of the number
+            product = product * digit; 
+            sum = sum  + digit; 
+            n = n/10; /* this will make the number lose its last digit and then when
+                         it moves for next iteration where  the operation is perform
+                         on the other digit. */
+        }
+        int answer = product - sum;
+        return answer;
+    }
+};
